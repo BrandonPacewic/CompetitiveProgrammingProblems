@@ -1,3 +1,6 @@
+# Copyright (c) Brandon Pacewic
+# SPDX-License-Identifier: MIT
+
 [submodule "CompetitiveProgramming"]
 	path = CompetitiveProgramming
 	url = https://github.com/BrandonPacewic/CompetitiveProgramming
