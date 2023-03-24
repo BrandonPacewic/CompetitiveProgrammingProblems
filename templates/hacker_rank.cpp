@@ -19,17 +19,17 @@
 using namespace std;
 
 template <typename A, typename B>
-std::ostream& operator<<(std::ostream& os, const std::pair<A, B>& p) {
+ostream& operator<<(ostream& os, const pair<A, B>& p) {
     return os << '(' << p.first << ", " << p.second << ')';
 }
 
 template <typename T_container,
-          typename T = typename std::enable_if<
-              !std::is_same<T_container, std::string>::value,
+          typename T = typename enable_if<
+              !is_same<T_container, string>::value,
               typename T_container::value_type>::type>
-std::ostream& operator<<(std::ostream& os, const T_container& container) {
+ostream& operator<<(ostream& os, const T_container& container) {
     os << '{';
-    std::string separator;
+    string separator;
 
     for (const T& item : container) {
         os << separator << item, separator = ", ";
@@ -39,13 +39,13 @@ std::ostream& operator<<(std::ostream& os, const T_container& container) {
 }
 
 #ifdef DBG_MODE
-void dbg_out() { std::cerr << std::endl; }
+void dbg_out() { cerr << endl; }
 template <typename Head, typename... Tail>
 void dbg_out(Head A, Tail... B) {
-    std::cerr << ' ' << A;
+    cerr << ' ' << A;
     dbg_out(B...);
 }
-#define test(...) std::cerr << "[" << #__VA_ARGS__ << "]:", dbg_out(__VA_ARGS__)
+#define test(...) cerr << "[" << #__VA_ARGS__ << "]:", dbg_out(__VA_ARGS__)
 #else
 #define test(...)
 #endif
@@ -56,8 +56,8 @@ void foo() {
 }
 
 int main() {
-    std::ios::sync_with_stdio(false);
-    std::cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
     // TODO: Add test runner
 
